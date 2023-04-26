@@ -38,7 +38,6 @@ body {
 .wrapper {
     max-width: 70rem;
     padding-inline: 1rem;
-
 }
 
 
@@ -119,11 +118,14 @@ body {
 }
 
 .accordion-panel:has([aria-expanded="true"]) {
-    flex-basis: clamp(30rem, 50vh, 40rem);
-
+    flex-basis: clamp(25rem, 40vh, 30rem);
 }
 
-
+@media screen and (min-width : 45em) {
+    .accordion-panel:has([aria-expanded="true"]) {
+        flex-basis: clamp(30rem, 50vh, 40rem);
+    }
+}
 
 .accordion-trigger {
     background-color: transparent;
@@ -150,7 +152,7 @@ body {
 
 .accordion-content>p {
     padding: clamp(.5rem, 2vw, 1rem);
-    width: 60ch;
+    width: 40ch;
     background-color: rgba(0, 0, 0, .66);
     font-size: clamp(.8rem, 1vw, 1rem);
     font-weight: bold;
@@ -172,6 +174,7 @@ body {
 @media screen and (min-width : 50rem) {
     .accordion-content>p {
         font-size: clamp(.6rem, 1vw, .8rem);
+        width: 70ch;
     }
 }
 
