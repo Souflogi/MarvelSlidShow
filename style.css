@@ -152,7 +152,7 @@ body {
 }
 
 .accordion-content>p {
-    padding: 1.2rem;
+    padding: clamp(.5rem, 2vw, 1rem);
     width: 60ch;
     background-color: rgba(0, 0, 0, .66);
     font-size: clamp(.8rem, 1vw, 1rem);
@@ -174,7 +174,7 @@ body {
 
 @media screen and (min-width : 50rem) {
     .accordion-content>p {
-        font-size: clamp(.6rem, 1vw, 1rem);
+        font-size: clamp(.6rem, 1vw, .8rem);
     }
 }
 
