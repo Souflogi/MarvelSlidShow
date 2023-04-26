@@ -1,0 +1,196 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html {
+    color-scheme: dark;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    background: url('./assets/avengers.jpg');
+    background-position: center;
+    background-size: cover;
+    backdrop-filter: blur(5px) brightness(15%);
+}
+
+.wrapper {
+    max-width: 50rem;
+    padding-inline: 1rem;
+}
+
+@media screen and (min-width : 50rem) {
+    .wrapper {
+        max-width: 70rem;
+    }
+}
+
+.accordion {
+    --_logo-size: 2.5rem;
+    --_panel-padding: .75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 80vw;
+}
+
+@media screen and (min-width : 50rem) {
+    .accordion {
+        flex-direction: row;
+        min-height: 50vh;
+        min-width: none;
+    }
+}
+
+
+
+.accordion-panel {
+    position: relative;
+    isolation: isolate;
+    flex-basis: calc((var(--_panel-padding) * 2) + var(--_logo-size));
+
+    padding: var(--_panel-padding);
+    overflow: hidden;
+    border-radius: calc(((var(--_panel-padding) * 2) + var(--_logo-size)) / 2);
+    box-shadow: 0 0 .5rem .2rem hsla(var(--_panel-color), 0.226);
+
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.accordion-panel:focus-within {
+    outline: 3px solid hsla(var(--_panel-color));
+}
+
+.accordion-panel:nth-child(1) {
+    --_panel-color: 18, 90%, 61%
+}
+
+.accordion-panel:nth-child(2) {
+    --_panel-color: 350, 91%, 55%;
+}
+
+.accordion-panel:nth-child(3) {
+    --_panel-color: 288, 77%, 46%;
+}
+
+.accordion-panel:nth-child(4) {
+    --_panel-color: 6, 77%, 46%;
+}
+
+.accordion-panel:nth-child(5) {
+    --_panel-color: 101, 77%, 46%;
+}
+
+.accordion-panel:nth-child(6) {
+    --_panel-color: 58, 84%, 51%;
+}
+
+.accordion-panel:nth-child(7) {
+    --_panel-color: 350, 91%, 55%;
+}
+
+@media (prefers-reduced-motion : no-preference) {
+    .accordion-panel {
+        transition: flex-basis .3s ease-in-out;
+    }
+}
+
+.accordion-panel:has([aria-expanded="true"]) {
+    flex-basis: clamp(30rem, 50vh, 40rem);
+    /* flex: 8 0 auto; */
+}
+
+
+
+.accordion-trigger {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    /* display: flex; */
+    height: var(--_logo-size);
+    aspect-ratio: 1/1;
+    border-radius: 100vw;
+    box-shadow: 0 0 3rem 2rem rgba(0, 0, 0, 1);
+}
+
+.accordion-trigger:focus .btn-logo {
+    filter: grayscale(0%);
+    transform: scale(1.2);
+}
+
+.btn-logo {
+    height: 100%;
+    width: 100%;
+    filter: grayscale(70%);
+}
+
+.accordion-content>p {
+    padding: 1.2rem;
+    width: 60ch;
+    background-color: rgba(0, 0, 0, .66);
+    font-size: clamp(.8rem, 1vw, 1rem);
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
+    border: 1px solid whitesmoke;
+    border-radius: 2rem;
+    opacity: 0;
+    transform: translateY(5rem);
+    transition: all .5s ease-in-out;
+
+}
+
+.accordion-panel:has([aria-expanded='true']) p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media screen and (min-width : 50rem) {
+    .accordion-content>p {
+        font-size: clamp(.6rem, 1vw, 1rem);
+    }
+}
+
+
+
+.accordion-image {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(2.5px) brightness(.3);
+    transition: filter .5s ease-in .45s;
+}
+
+.accordion-panel:has([aria-expanded='true']) img {
+    filter: blur(0) brightness(.55);
+}
