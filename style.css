@@ -37,7 +37,7 @@ body {
 
 .wrapper {
     max-width: 70rem;
-    padding-inline: 1rem;
+
 }
 
 
@@ -174,7 +174,7 @@ body {
 @media screen and (min-width : 50rem) {
     .accordion-content>p {
         font-size: clamp(.6rem, 1vw, .8rem);
-        width: 70ch;
+        width: 60ch;
     }
 }
 
