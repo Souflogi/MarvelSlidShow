@@ -36,15 +36,12 @@ body {
 }
 
 .wrapper {
-    max-width: 50rem;
+    max-width: 70rem;
     padding-inline: 1rem;
+
 }
 
-@media screen and (min-width : 50rem) {
-    .wrapper {
-        max-width: 70rem;
-    }
-}
+
 
 .accordion {
     --_logo-size: 2.5rem;
@@ -123,7 +120,7 @@ body {
 
 .accordion-panel:has([aria-expanded="true"]) {
     flex-basis: clamp(30rem, 50vh, 40rem);
-    /* flex: 8 0 auto; */
+
 }
 
 
